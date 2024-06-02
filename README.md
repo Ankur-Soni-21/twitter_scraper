@@ -2,7 +2,7 @@
 
 ## Note
 
-The `server.py`, `index.html`, and `twitter_scraper.js` files are placeholders and are not correctly connected. The Flask server and frontend components are not fully implemented due to lack of knowledge of Flask. If you have expertise in Flask, contributions to improve this aspect of the project are highly appreciated.
+The `server.py`, `index.html`, and `twitter_scraper.js` files are placeholders and are not correctly connected. The Flask server and frontend components are not fully implemented due to lack of knowledge of Flask.
 
 
 ## Overview
