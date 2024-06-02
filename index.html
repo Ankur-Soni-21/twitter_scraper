@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Scraper</title>
+</head>
+<body>
+    <h1>Twitter Scraper</h1>
+    <button id="getTagsButton">Get Tags</button>
+    <div id="tagsContainer"></div>
+
+    <script>
+        const getTagsButton = document.getElementById('getTagsButton');
+        const tagsContainer = document.getElementById('tagsContainer');
+
+        getTagsButton.addEventListener('click', async () => {
+            const response = await fetch('/get-tags');
+            const data = await response.json();
+            const tags = data.tags;
+            const tagsList = document.createElement('ul');
+            tags.forEach(tag => {
+                const listItem = document.createElement('li');
+                listItem.textContent = tag;
+                tagsList.appendChild(listItem);
+            });
+            tagsContainer.innerHTML = '';
+            tagsContainer.appendChild(tagsList);
+        });
+    </script>
+</body>
+</html>
