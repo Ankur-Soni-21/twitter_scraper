@@ -1,5 +1,10 @@
 # Twitter Scraper
 
+## Note
+
+The `server.py`, `index.html`, and `twitter_scraper.js` files are placeholders and are not correctly connected. The Flask server and frontend components are not fully implemented due to lack of knowledge of Flask. If you have expertise in Flask, contributions to improve this aspect of the project are highly appreciated.
+
+
 ## Overview
 
 The `twitter_scraper` script is designed to scrape trending topics from Twitter using Selenium. It automates the process of logging into Twitter, extracting trending topics, and storing the data in a MongoDB database. This README provides instructions on setting up and running the script effectively.
