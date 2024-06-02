@@ -1,8 +1,8 @@
 # Twitter Scraper
 
 ## Note
-
-The `server.py`, `index.html`, and `twitter_scraper.js` files are placeholders and are not correctly connected. The Flask server and frontend components are not fully implemented due to lack of knowledge of Flask.
+The `twitter_scraper.py` works perfleclty on its own
+But `server.py`, `index.html`, and `twitter_scraper.js` files are placeholders and are not correctly connected. The Flask server and frontend components are not fully implemented due to lack of knowledge of Flask.
 
 
 ## Overview
