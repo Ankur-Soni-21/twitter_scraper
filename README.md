@@ -1,41 +1,40 @@
-# Twitter Scraper
-
-## Note
-The `twitter_scraper.py` works perfleclty on its own,
-But `server.py`, `index.html`, and `twitter_scraper.js` files are placeholders and are not correctly connected. The Flask server and frontend components are not fully implemented due to lack of knowledge of Flask.
-
-
-## Overview
-
-The `twitter_scraper` script is designed to scrape trending topics from Twitter using Selenium. It automates the process of logging into Twitter, extracting trending topics, and storing the data in a MongoDB database. This README provides instructions on setting up and running the script effectively.
+# Project Setup Guide
 
 ## Setup
 
 1. **Clone the Repository**: Begin by cloning this repository to your local machine.
 
     ```bash
-    git clone https://github.com/your-username/twitter_scraper.git
+    git clone <url>
+    cd <repo>
     ```
 
-2. **Create a `.env` file**: Create a `.env` file in the project root directory to store sensitive information such as your Twitter username, password, and proxy settings. Replace `xxxxxx` and `h$xxxxx` with your actual Twitter credentials and `host:port` with your proxy information.
-
-    ```dotenv
-    TWITTER_USERNAME=xxxxxx
-    TWITTER_PASSWORD=h$xxxxx
-    PROXY=host:port
-    ```
-
-3. **Install Dependencies**: Install the required Python packages using `pip`.
+2. **Install Dependencies**: Install the required npm packages.
 
     ```bash
-    pip install -r requirements.txt
+    npm install
     ```
 
-4. **Download Chrome WebDriver**: Download the Chrome WebDriver appropriate for your Chrome browser version and place it in the project folder.
+3. **Install ChromeDriver**: Download the stable version of ChromeDriver from [here](https://googlechromelabs.github.io/chrome-for-testing/).
+
+4. **Install MongoDB Compass**: Download and install MongoDB Compass from [here](https://www.mongodb.com/try/download/community) to connect to the MongoDB database.
+
+5. **Connect to MongoDB**:
+    - Open MongoDB Compass.
+    - Connect to `localhost:27017`.
+
+6. **Configure Environment Variables**:
+    - Create a `.env` file based on the `env.sample` file in the repository.
+    - Add your Twitter credentials and ProxyMesh server credentials to the `.env` file.
 
 ## Usage
 
-Run the `twitter_scraper.py` script to execute the scraping process. Ensure that your Chrome browser is installed and the WebDriver is correctly configured.
+1. **Start the Server**:
 
-```bash
-python twitter_scraper.py
+    ```bash
+    node server.js
+    ```
+
+2. **Run the Application**:
+    - Open `index.html` on `localhost:5500` using the Live Server extension.
+    - Click on the "Run Script" button to run the Selenium script.
