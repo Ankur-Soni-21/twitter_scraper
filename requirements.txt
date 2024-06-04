@@ -1,5 +1,0 @@
-pymongo
-python-dotenv
-selenium
-requests
-dotenv

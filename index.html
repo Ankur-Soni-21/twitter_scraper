@@ -2,31 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter Scraper</title>
+    <title>Twitter Trends</title>
+    <script>
+        async function runSeleniumScript() {
+            document.getElementById('result').innerHTML = 'Running script, please wait...';
+
+            const response = await fetch('http://localhost:3000/run-script');
+            const data = await response.json();
+
+            if (data.success) {
+                const { trends, ipAddress, jsonData, endTime } = data;
+
+                const resultHtml = `
+                    <p>These are the most happening topics as on ${endTime}</p>
+                    <ul>
+                        ${trends.map(trend => `<li>${trend}</li>`).join('')}
+                    </ul>
+                    <p>The IP address used for this query was ${ipAddress}.</p>
+                    <p>Here’s a JSON extract of this record from the MongoDB:</p>
+                    <pre>${JSON.stringify(jsonData, null, 2)}</pre>
+                    <p><a href="javascript:void(0);" onclick="runSeleniumScript()">Click here to run the query again.</a></p>
+                `;
+                document.getElementById('result').innerHTML = resultHtml;
+            } else {
+                document.getElementById('result').innerHTML = 'Error running script. Please try again.';
+            }
+        }
+    </script>
 </head>
 <body>
-    <h1>Twitter Scraper</h1>
-    <button id="getTagsButton">Get Tags</button>
-    <div id="tagsContainer"></div>
-
-    <script>
-        const getTagsButton = document.getElementById('getTagsButton');
-        const tagsContainer = document.getElementById('tagsContainer');
-
-        getTagsButton.addEventListener('click', async () => {
-            const response = await fetch('/get-tags');
-            const data = await response.json();
-            const tags = data.tags;
-            const tagsList = document.createElement('ul');
-            tags.forEach(tag => {
-                const listItem = document.createElement('li');
-                listItem.textContent = tag;
-                tagsList.appendChild(listItem);
-            });
-            tagsContainer.innerHTML = '';
-            tagsContainer.appendChild(tagsList);
-        });
-    </script>
+    <p><a href="javascript:void(0);" onclick="runSeleniumScript()">Click here to run the script.</a></p>
+    <div id="result"></div>
 </body>
 </html>
